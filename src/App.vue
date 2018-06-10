@@ -3,13 +3,13 @@
     <el-container>
       <el-container>
         <el-header>
-          <Bar></Bar>
+          <Bar @getName="getName"></Bar>
         </el-header>
         <el-main>
-          <router-view/>
+          <router-view @uploadScore="uploadScore" />
         </el-main>
       </el-container>
-      <el-aside width="200px" class="hidden-xs-only"><Aside></Aside></el-aside>
+      <el-aside width="200px" class="hidden-xs-only"><Aside ref="aside"></Aside></el-aside>
     </el-container>
   </div>
 </template>
@@ -20,11 +20,17 @@
 export default {
   data() {
     return {
-
+      name: '匿名'
     }
   },
   methods: {
-
+    uploadScore(score) {
+      this.$refs.aside.addData({name: this.name, score})
+      this.$axios.get('/api/data', {params: {change: 1, name: this.name, score}})
+    },
+    getName(name) {
+      this.name = name
+    }
   },
   components: {
     Bar, Aside

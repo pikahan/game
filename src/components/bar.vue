@@ -38,6 +38,7 @@
           }).then(({ value }) => {
             this.isLogined = true
             this.username = value
+            this.$emit('getName', value)
             this.$message({
               type: 'success',
               message: '登录成功 '

@@ -2,7 +2,8 @@ var express = require('express')
 var app = express();
 var fs = require('fs')
 var path = require('path')
-var data = fs.readFileSync(path.join(__dirname, '../public/faker.json'), 'utf8')
+var dataPath = path.join(__dirname, '../public/faker.json')
+var data = fs.readFileSync(dataPath, 'utf8')
 
 
 var allowCrossDomain = function(req, res, next) {//设置response头部的中间件
@@ -14,7 +15,19 @@ var allowCrossDomain = function(req, res, next) {//设置response头部的中间
 };
 app.use(allowCrossDomain);
 app.get("/api/data",function (request,response) {
-  response.send(data);
+  const change = parseInt(request.param('change'))
+  if (change === 1) {
+    const name = request.param('name')
+    if (name === '匿名') return
+    const score = request.param('score')
+
+    let newData = JSON.parse(data)
+    newData[name] = score
+
+    fs.writeFileSync(dataPath, JSON.stringify(newData))
+  } else {
+    response.send(data);
+  }
 })
 app.listen('3000',function () {
   console.log('>listening on 3000')

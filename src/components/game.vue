@@ -204,7 +204,7 @@
               }
               if (o.y > this.height - this.ball.height) {
                 this.pause = true
-                this.uploadScore(this.score)
+                this.lose(this.score)
               }
 
               // move
@@ -241,9 +241,6 @@
           paddle.y = this.paddleY
           ball.fired = false
         },
-        uploadScore(score) {
-          this.lose(score)
-        },
         lose(score) {
           const h = this.$createElement;
 
@@ -251,6 +248,8 @@
             title: '你输了',
             message: h('i', { style: 'color: teal'}, `你的分数是${score} 上传成绩中......`)
           })
+
+          this.$emit('uploadScore', this.score);
         },
         reset() {
           this.init(this.ballObj, this.paddleObj)

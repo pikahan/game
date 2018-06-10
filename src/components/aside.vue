@@ -8,7 +8,7 @@
           :default-sort="{prop:'score', order: 'descending'}"
           align="left">
           <el-table-column
-            prop="rank"
+            type="index"
             label="名次"
             width="50">
           </el-table-column>
@@ -27,7 +27,6 @@
       <el-collapse-item title="控制说明" name="2">
         <div>ad键左右移动,f键开始</div>
       </el-collapse-item>
-
     </el-collapse>
   </div>
 </template>
@@ -55,6 +54,11 @@
             ret.push({rank: i++,name, score: data[name]})
           }
           return ret
+        },
+        addData(data) {
+          if (data.name && data.score) {
+            this.phb.push(data)
+          }
         }
       }
     }
