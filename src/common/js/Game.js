@@ -23,7 +23,13 @@ function intersect(rect1, rect2) {
     return Math.abs(cen2.x - cen1.x) <= half1Width + half2Width && Math.abs(cen2.y - cen1.y) <= half1Height + half2Height
 }
 
+function drawScore(ctx,level, score, x, y) {
+  ctx.font = '12px serif'
+  ctx.fillText(`当前关卡: ${level} 当前分数: ${score}`, x, y)
+}
+
 export {
   createImg,
-  intersect
+  intersect,
+  drawScore,
 }

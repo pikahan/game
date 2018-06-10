@@ -4,7 +4,7 @@
     <div v-if="!isLogined" class="btn-group">
       <el-button type="text" @click="openLogin"><el-tag>登录</el-tag></el-button>
     </div>
-    <div class="user" v-if="isLogined">
+    <div class="user" v-else>
       <span>你好{{username}}</span>
     </div>
   </div>
