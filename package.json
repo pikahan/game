@@ -10,9 +10,10 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "element-ui": "^2.4.0",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1",
-    "element-ui": "^2.4.0"
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -52,7 +53,11 @@
     "webpack-merge": "^4.1.0",
     "babel-polyfill": "^6.26.0",
     "stylus-loader": "^3.0.2",
-    "stylus": "^0.54.5"
+    "stylus": "^0.54.5",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.0"
   },
   "engines": {
     "node": ">= 6.0.0",

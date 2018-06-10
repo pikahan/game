@@ -9,14 +9,14 @@
           <router-view/>
         </el-main>
       </el-container>
-      <el-aside width="200px" class="hidden-xs-only">Aside</el-aside>
+      <el-aside width="200px" class="hidden-xs-only"><Aside></Aside></el-aside>
     </el-container>
   </div>
 </template>
 
 <script>
   import Bar from '@/components/bar'
-
+  import Aside from '@/components/aside'
 export default {
   data() {
     return {
@@ -27,7 +27,7 @@ export default {
 
   },
   components: {
-    Bar
+    Bar, Aside
   }
 }
 </script>
