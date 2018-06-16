@@ -356,6 +356,7 @@
 <style scoped lang="stylus" rel="stylesheet/stylus">
   #id-canvas
     border 1px solid black
+    background aliceblue
 
   .reset
     margin-top -90px
