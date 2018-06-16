@@ -27,3 +27,8 @@ npm start
 * axios
 * express
 * element
+* stylus
+
+## 游戏界面
+
+![view](./view.png)
